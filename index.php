@@ -1,29 +1,36 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Página sem nome</title>
-        <link rel="stylesheet" href="style.css"/>
+        <meta charset="UTF-8"/>
+        <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Consulta de Banco de Dados</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     </head>
     <body>
         <!--Integrantes do Grupo: Amanda Terezinha, Deivid, Gabrielly, Lucas-->
-        <h1>Título da Página</h1>
+        <style>
+            <?php
+                include 'style.css';
+            ?>
+        </style>
+        <h1>Tabela Alunos do Banco de Dados</h1>
         <?php
-           
-            echo "uma frase criativa"."<br>";
             $servidor = "localhost";
-            $usuario = "developer";
-            $senha = "dev1234";
-            $nomedb = "maindb";
+            $usuario = "id20491940_developer";
+            $senha = "Xsgc|6Vz-&3Kwy3q";
+            $nomedb = "id20491940_maindb";
 
             $conn = new mysqli($servidor, $usuario, $senha, $nomedb);
 
-            if($conn -> connect_error) {
-                die("<h4>Conexão Falhou:</h4>".$conn -> connect_error);
+            if($conn->connect_error) {
+                die("<h4>Conexão Falhou:</h4>".$conn->connect_error);
             }
             echo "<h4>Conectado ao DB</h4>"."<br>";
 
-            $sql = "SELECT Nome, Sobrenome, Telefone FROM agenda";
-            $result = $conn -> query($sql);
+            $sql = "SELECT Nome, Sobrenome, Telefone FROM alunos";
+            $result = $conn->query($sql);
 
             echo 
             "<table>
@@ -35,18 +42,18 @@
                 <tbody>";
                     
                
-            if($result -> num_row > 0) {
-                while($row = $result -> fetch_assoc()) {
+            if($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
                     echo
                     "<tr>"
-                        ."<td>".row["Nome"]."</td>"
-                        ."<td>".row["Sobrenome"]."</td>"
-                        ."<td>".row["Telefone"]."</td>"
+                        ."<td>".$row["Nome"]."</td>"
+                        ."<td>".$row["Sobrenome"]."</td>"
+                        ."<td>".$row["Telefone"]."</td>"
                     ."</tr>";
-                    echo
-                    "</tbody>
-                    </table>";
                 }
+                echo
+                "</tbody>
+                </table>";
             } else {
                 echo
                 "<tr>
