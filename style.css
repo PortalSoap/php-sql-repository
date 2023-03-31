@@ -35,3 +35,43 @@ table th, table td {
 table tbody tr:hover {
     background-color: #eeeeee;
 }
+
+fieldset {
+    display: inline-block;
+    background-color: #eeeeee;
+    border-color: #dddddd;
+    box-shadow: 0px 5px 10px #bbbbbb;
+    margin: 20px 0px;
+}
+
+fieldset legend {
+    text-align: left;
+    font-size: 25px;
+}
+
+fieldset label {
+    display: inline-block;
+}
+
+input {
+    outline: none;
+    padding: 3px
+}
+
+input[type="text"] {
+    width: 180px
+}
+
+input[type="submit"] {
+    font-size: 18px;
+    color: #eeeeee;
+    background-color: #222222;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 20px;
+    margin-top: 20px;
+}
+
+input[type="submit"]:hover {
+    background-color: #333333;
+}
