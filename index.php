@@ -3,55 +3,49 @@
     <head>
         <meta charset="UTF-8"/>
         <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Consulta de Banco de Dados</title>
+        <title>Entrar</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     </head>
     <body>
-        <!-- Integrantes do Grupo: Amanda Terezinha, Deivid, Gabrielly, Lucas -->
-        <!-- Estilização CSS -->
-        <style>
-            <?php
-                include 'style.css';
-            ?>
-        </style>
-
-        <!-- Consulta ao Banco de Dados -->
-        <h1>Tabela Alunos do Banco de Dados</h1>
-        <?php
-            include 'connection.php';
-            if($conn->connect_error) {
-                die("<h4>Conexão Falhou:</h4>".$conn->connect_error);
-            }
-            echo "<h4>Conectado ao DB</h4>"."<br>";
-            include 'table.php';
-        ?>
-    
-        <!-- Formulário -->
-        <form method="POST" action="">
-            <fieldset>
-                <legend>Adicionar Aluno</legend>
-                <label>
-                    Nome:
-                    <input type="text" name="name" required/>
-                </label>
-                <label>
-                    Sobrenome:
-                    <input type="text" name="uppername" required/>
-                </label>
-                <label>
-                    Telefone:
-                    <input type="text" name="phone" required/>
-                </label> <br/>
-                <input type="submit" name="add-data" value="Adicionar"/>
-            </fieldset>
-        </form>
-        
-        <!-- Adição de novas linhas ao Banco de Dados -->
-        <?php
-            include 'connection.php';
-            include 'data-addition-interface.php';
-        ?>
+        <main class="container">
+            <section id="sign-in" class="sign-box">
+                <h1>Entrar</h1>
+                <form method="POST">
+                    <label>
+                        <span>Usuário:</span>
+                        <input type="text" name="username" required/>
+                    </label> <br/>
+                    <label>
+                        <span>Senha:</span>
+                        <input type="password" name="password" required/>
+                    </label>
+                    <input type="submit" name="sign-in" value="Continuar"/>
+                </form>
+            </section>
+            <section id="sign-up" class="sign-box">
+                <h1>Cadastrar</h1>    
+                <form method="POST">
+                    <label>
+                        <span>Nome:</span>
+                        <input type="text" name="name" required/>
+                    </label> <br/>
+                    <label>
+                        <span>Sobrenome:</span>
+                        <input type="text" name="surname" required/>
+                    </label> <br/>
+                    <label>
+                        <span>Usuário:</span>
+                        <input type="text" name="username" required/>
+                    </label> <br/>
+                    <label>
+                        <span>Senha:</span>
+                        <input type="password" name="password" required/>
+                    </label> <br/>
+                    <input type="submit" name="sign-up" value="Continuar"/>
+                </form>
+            </section>
+        </main>
     </body>
 </html>

@@ -5,7 +5,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     text-align: center;
-    margin: 10px;
+    margin: 0px;
 }
 
 h1 {
@@ -75,4 +75,59 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #333333;
     cursor: pointer;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.container .sign-box {
+    width: 500px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    box-shadow:  0px 5px 10px #bbbbbb;
+    padding: 30px;
+}
+
+.sign-box h1 {
+    font-size: 30px;
+    color: #444444;
+    text-transform: uppercase;
+}
+
+.sign-box form {
+    height: 100%;
+    text-align: center;
+}
+
+.sign-box label {
+    display: inline-block;
+    margin-bottom: 25px;
+    text-align: left;
+    font-size: 20px;
+}
+
+.sign-box label span {
+    display: block;
+    margin-left: 15px;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #444444;
+}
+
+.sign-box label input {
+    width: 440px;
+    font-size: 18px;
+    color: #777777;
+    outline: none;
+    border: 1px solid #dddddd;
+    border-radius: 20px;
+    padding: 5px 10px;
 }
