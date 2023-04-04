@@ -20,55 +20,12 @@
         <!-- Consulta ao Banco de Dados -->
         <h1>Tabela Alunos do Banco de Dados</h1>
         <?php
-            $servidor = "localhost";
-            $usuario = "id20491940_developer";
-            $senha = "Xsgc|6Vz-&3Kwy3q";
-            $nomedb = "id20491940_maindb";
-        
-            $conn = new mysqli($servidor, $usuario, $senha, $nomedb);
-
+            include 'connection.php';
             if($conn->connect_error) {
                 die("<h4>Conexão Falhou:</h4>".$conn->connect_error);
             }
             echo "<h4>Conectado ao DB</h4>"."<br>";
-        
-            $sql = "SELECT Nome, Sobrenome, Telefone FROM alunos";
-            $result = $conn->query($sql);
-        
-            echo
-            "<table>
-                <thead>
-                    <th>Nome</th>
-                    <th>Sobrenome</th>
-                    <th>Telefone</th>
-                </thead>
-                <tbody>";
-                    
-                
-            if($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    echo
-                    "<tr>"
-                        ."<td>".$row["Nome"]."</td>"
-                        ."<td>".$row["Sobrenome"]."</td>"
-                        ."<td>".$row["Telefone"]."</td>"
-                    ."</tr>";
-                }
-                echo
-                "</tbody>
-                </table>";
-            } else {
-                echo
-                "<tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>";
-                echo
-                "</tbody>
-                </table> </br>";
-                echo "<h4>0 resultados encontrados. A tabela está vazia.</h4>";
-            }
+            include 'table.php';
         ?>
     
         <!-- Formulário -->
@@ -93,24 +50,8 @@
         
         <!-- Adição de novas linhas ao Banco de Dados -->
         <?php
-            $servidor = "localhost";
-            $usuario = "id20491940_developer";
-            $senha = "Xsgc|6Vz-&3Kwy3q";
-            $nomedb = "id20491940_maindb";
-        
-            $conn = new mysqli($servidor, $usuario, $senha, $nomedb);
-
-            if(isset($_POST['add-data'])) {
-                $name = $_POST["name"];
-                $uppername = $_POST["uppername"];
-                $phone = $_POST["phone"];
-
-                $sql = "INSERT INTO alunos (Nome, Sobrenome, Telefone)
-                VALUES ('$name', '$uppername', '$phone')";
-
-                $conn->query($sql);
-                echo "<meta http-equiv='refresh'content='0'/>";
-            }
+            include 'connection.php';
+            include 'data-addition-interface.php';
         ?>
     </body>
 </html>
